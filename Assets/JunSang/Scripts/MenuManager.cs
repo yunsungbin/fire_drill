@@ -10,14 +10,14 @@ using UnityEngine.UI;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] _menuList; 
-    [SerializeField] private Button[] _firstSelectButton; 
+    [SerializeField] private Button[] _firstSelectButton;
     [SerializeField] private int _Menuindex = 0; 
     [SerializeField] private int _Buttonindex = 0; 
     // Start is called before the first frame update
 
     void Awake(){
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        // Cursor.lockState = CursorLockMode.Locked;
+        // Cursor.visible = false;
     }
     void Start()
     {
