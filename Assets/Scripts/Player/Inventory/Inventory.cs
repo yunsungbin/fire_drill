@@ -7,10 +7,8 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
-    private bool isItem = false;
     private void Awake()
     {
-        isItem = false;
         if(instance != null)
         {
             Destroy(gameObject);
@@ -24,15 +22,32 @@ public class Inventory : MonoBehaviour
 
     public List<Item> items = new List<Item>();
 
-    private void FixedUpdate()
+    public int Check = 100;
+    public bool isItemFall = false;
+
+    private void Start()
     {
-        if (Input.GetKey(KeyCode.Alpha1))
-        {
+        Check = 100;
+    }
 
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Alpha1) && items[0] != null)
+        {
+            Check = 0;
         }
-        if (Input.GetKey(KeyCode.Alpha2))
+        if(Input.GetKey(KeyCode.Alpha2) && items[1] != null)
         {
-
+            Check = 1;
+            
+        }
+        if (Input.GetKey(KeyCode.Q) && Check != 100)
+        {
+            isItemFall = true;
+            ItemDataBase.Fallitem = items[Check];
+            items.RemoveAt(Check);
+            onChangeItem.Invoke();
+            Check = 100;
         }
     }
 
@@ -46,6 +61,12 @@ public class Inventory : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void RemoveItem(int _index)
+    {
+        items.RemoveAt(_index);
+        onChangeItem.Invoke();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
