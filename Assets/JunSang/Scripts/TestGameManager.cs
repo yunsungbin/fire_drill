@@ -9,7 +9,7 @@ public class TestGameManager : MonoBehaviour
 
     public float musicVolume;
     public float sfxVolume;
-    public enum GANESTATION : int{
+    public enum GAMESTATION : int{
         READY,
         PLAY = 20,
         STOP,
@@ -18,7 +18,7 @@ public class TestGameManager : MonoBehaviour
     }
 
 
-    public GANESTATION gameStation;
+    public GAMESTATION gameStation;
     // Start is called before the first frame update
     void Awake(){
         if(Instance == null){
@@ -31,9 +31,6 @@ public class TestGameManager : MonoBehaviour
             }
         }
 
-    }
-    public void GameStart(){
-        gameStation = GANESTATION.PLAY;
     }
 
     void OnEnable(){

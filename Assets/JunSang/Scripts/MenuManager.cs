@@ -22,7 +22,7 @@ public class MenuManager : MonoBehaviour
     }
     void Start()
     {
-        TestGameManager.Instance.gameStation = TestGameManager.GANESTATION.READY;
+        TestGameManager.Instance.gameStation = TestGameManager.GAMESTATION.READY;
         SelectedMenu(_Menuindex, _Buttonindex, _Sliderindex);
     }
 
@@ -42,7 +42,6 @@ public class MenuManager : MonoBehaviour
         if(button.name == "Start_Button"){ 
             AudioManager.Instance.PlaySFX("ButtonClick");
             StartCoroutine(WaitForSecond());
-            TestGameManager.Instance.GameStart();
             SceneManager.LoadScene("Test"); 
         }
         else if(button.name == "OptionMenu_Button"){

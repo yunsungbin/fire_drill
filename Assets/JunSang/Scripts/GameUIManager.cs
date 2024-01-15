@@ -13,8 +13,8 @@ public class GameUIManager : MonoBehaviour
     }
     void Start()
     {
-        GameUIOnOff();
-        TestGameManager.Instance.gameStation = TestGameManager.GANESTATION.PLAY;
+        TestGameManager.Instance.gameStation = TestGameManager.GAMESTATION.PLAY;
+        pausePanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -26,13 +26,13 @@ public class GameUIManager : MonoBehaviour
     }
 
     void GameUIOnOff(){
-        if(gameUIOnoffFlag == false && TestGameManager.Instance.gameStation == TestGameManager.GANESTATION.PLAY){
+        if(gameUIOnoffFlag == false && TestGameManager.Instance.gameStation == TestGameManager.GAMESTATION.PLAY){
             gameUIOnoffFlag = true;
-            TestGameManager.Instance.gameStation = TestGameManager.GANESTATION.STOP;
+            TestGameManager.Instance.gameStation = TestGameManager.GAMESTATION.STOP;
         }
-        else if(gameUIOnoffFlag == true && TestGameManager.Instance.gameStation == TestGameManager.GANESTATION.STOP){
+        else if(gameUIOnoffFlag == true && TestGameManager.Instance.gameStation == TestGameManager.GAMESTATION.STOP){
             gameUIOnoffFlag = false;
-            TestGameManager.Instance.gameStation = TestGameManager.GANESTATION.PLAY;
+            TestGameManager.Instance.gameStation = TestGameManager.GAMESTATION.PLAY;
         }
         pausePanel.SetActive(gameUIOnoffFlag);
     }
