@@ -15,11 +15,15 @@ public class Item
     public ItemType itemType;
     public string itemName;
     public Sprite itemImage;
+    public List<ItemEffect> efts;
 
     public bool Use()
     {
         bool isUsed = false;
-        isUsed = true;
+        foreach(ItemEffect eft in efts)
+        {
+            isUsed = eft.ExecuteRole();
+        }
         return false;
     }
 }

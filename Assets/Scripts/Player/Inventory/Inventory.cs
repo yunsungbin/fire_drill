@@ -7,10 +7,8 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
-    private bool isItem = false;
     private void Awake()
     {
-        isItem = false;
         if(instance != null)
         {
             Destroy(gameObject);
@@ -19,26 +17,44 @@ public class Inventory : MonoBehaviour
         instance = this;
     }
 
+    public delegate void OnSlotCountChange(int val);
+    public OnSlotCountChange onSlotCountChange;
+    private int slotCnt;
+
+    public int SlotCnt
+    {
+        get => slotCnt;
+        set
+        {
+            slotCnt = value;
+            onSlotCountChange.Invoke(slotCnt);
+        }
+    }
+
     public delegate void OnChangeItem();
     public OnChangeItem onChangeItem;
 
     public List<Item> items = new List<Item>();
+    public Slot slot;
 
-    private void FixedUpdate()
+    private void Start()
     {
-        if (Input.GetKey(KeyCode.Alpha1))
-        {
+        slotCnt = 2;
+    }
 
-        }
-        if (Input.GetKey(KeyCode.Alpha2))
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Q))
         {
-
+            bool isUse = slot.item.Use();
+            if (isUse)
+                RemoveItem(slot.slotnum);
         }
     }
 
     public bool AddItem(Item _item)
     {
-        if (items.Count < 2)
+        if (items.Count < slotCnt)
         {
             items.Add(_item);
             if(onChangeItem != null)
@@ -46,6 +62,12 @@ public class Inventory : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void RemoveItem(int _index)
+    {
+        items.RemoveAt(_index);
+        onChangeItem.Invoke();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

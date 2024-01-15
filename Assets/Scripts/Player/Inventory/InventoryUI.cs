@@ -14,7 +14,16 @@ public class InventoryUI : MonoBehaviour
     {
         inven = Inventory.instance;
         slots = slotHolder.GetComponentsInChildren<Slot>();
+        inven.onSlotCountChange += SlotChange;
         inven.onChangeItem += RedrawSlotUI;
+    }
+
+    private void SlotChange(int val)
+    {
+        for(int index = 0; index < slots.Length; index++)
+        {
+            slots[index].slotnum = index;
+        }
     }
 
     void RedrawSlotUI()

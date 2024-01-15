@@ -172,6 +172,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -245,6 +246,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 589e39d3ffc0a1d469373e7c66b573ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &522633352
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,12 +306,18 @@ MonoBehaviour:
   - itemType: 0
     itemName: "\uC18C\uD654\uAE30"
     itemImage: {fileID: -1722126508, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
+    efts:
+    - {fileID: 11400000, guid: ae49f963860256d42b267808e769befd, type: 2}
   - itemType: 1
     itemName: "\uB2F4\uC694"
     itemImage: {fileID: 1304559308, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
+    efts:
+    - {fileID: 11400000, guid: 7160c2568776530459dc2007fbdaa87a, type: 2}
   - itemType: 2
     itemName: "\uBD95\uB300"
     itemImage: {fileID: 934571490, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
+    efts:
+    - {fileID: 11400000, guid: 2192ab580afc4584594b0bd5a8a2e109, type: 2}
   filedItemPrefab: {fileID: 7080281461493035855, guid: 58f5c4370080a8b4587b58a94c445e92, type: 3}
   pos:
   - {x: -1, y: 0, z: 0}
@@ -787,7 +806,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4694757ec1c83440b31c787460551c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 0}
   items: []
 --- !u!1 &2033491407
 GameObject:
