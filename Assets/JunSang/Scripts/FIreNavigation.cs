@@ -6,6 +6,8 @@ using UnityEngine.AI;
 
 public class FIreNavigation : MonoBehaviour
 {
+    [SerializeField] Pathfinding path;
+    Vector3 targetPosition;
     public Transform target;
     public float speed;
     public float damage;
@@ -21,9 +23,15 @@ public class FIreNavigation : MonoBehaviour
     void Update()
     {
         Vector3 direction = target.position - transform.position;
-        direction.Normalize();
 
-        transform.position += direction * speed * Time.deltaTime;
+        targetPosition = target.position;
+        List<Node> newWay = path.PathFind(transform.position, targetPosition);
+        if (newWay != null && newWay.Count > 0)
+        {
+            direction = newWay[0].myPos - transform.position;
+            direction.Normalize();
+            transform.position += direction * speed * Time.deltaTime;
+        }
 
         // 지연 딜
         if(isDamaged == true){
