@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Jobs;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class MenuManager : MonoBehaviour
     }
     void Start()
     {
+        TestGameManager.Instance.gameStation = TestGameManager.GAMESTATION.READY;
         SelectedMenu(_Menuindex, _Buttonindex, _Sliderindex);
     }
 
@@ -38,11 +40,9 @@ public class MenuManager : MonoBehaviour
 
     public void MenuButton(Button button){
         if(button.name == "Start_Button"){ 
-            _Menuindex = 0;                       
-            _Buttonindex = 0;
-            _Sliderindex = -1;
             AudioManager.Instance.PlaySFX("ButtonClick");
-            StartCoroutine(WaitForSecond());  
+            StartCoroutine(WaitForSecond());
+            SceneManager.LoadScene("Test"); 
         }
         else if(button.name == "OptionMenu_Button"){
             _Menuindex = 1;                      
