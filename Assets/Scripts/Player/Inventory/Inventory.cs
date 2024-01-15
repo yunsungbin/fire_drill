@@ -17,44 +17,43 @@ public class Inventory : MonoBehaviour
         instance = this;
     }
 
-    public delegate void OnSlotCountChange(int val);
-    public OnSlotCountChange onSlotCountChange;
-    private int slotCnt;
-
-    public int SlotCnt
-    {
-        get => slotCnt;
-        set
-        {
-            slotCnt = value;
-            onSlotCountChange.Invoke(slotCnt);
-        }
-    }
-
     public delegate void OnChangeItem();
     public OnChangeItem onChangeItem;
 
     public List<Item> items = new List<Item>();
-    public Slot slot;
+
+    public int Check = 100;
+    public bool isItemFall = false;
 
     private void Start()
     {
-        slotCnt = 2;
+        Check = 100;
     }
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.Alpha1) && items[0] != null)
         {
-            bool isUse = slot.item.Use();
-            if (isUse)
-                RemoveItem(slot.slotnum);
+            Check = 0;
+        }
+        if(Input.GetKey(KeyCode.Alpha2) && items[1] != null)
+        {
+            Check = 1;
+            
+        }
+        if (Input.GetKey(KeyCode.Q) && Check != 100)
+        {
+            isItemFall = true;
+            ItemDataBase.Fallitem = items[Check];
+            items.RemoveAt(Check);
+            onChangeItem.Invoke();
+            Check = 100;
         }
     }
 
     public bool AddItem(Item _item)
     {
-        if (items.Count < slotCnt)
+        if (items.Count < 2)
         {
             items.Add(_item);
             if(onChangeItem != null)

@@ -21,4 +21,11 @@ public class Slot : MonoBehaviour
         item = null;
         itemIcon.gameObject.SetActive(false);
     }
+
+    public void UseItem()
+    {
+        bool isUse = item.Use();
+        if (isUse)
+            Inventory.instance.RemoveItem(slotnum);
+    }
 }
