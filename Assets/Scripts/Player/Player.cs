@@ -8,8 +8,8 @@ public class Player : MonoBehaviour
     private Vector2 inputVec = new Vector2();
     [SerializeField]
     private float Speed;
-    //[SerializeField]
-    //private RuntimeAnimatorController AnimCon;
+
+    Animator anim;
 
     private SpriteRenderer sprite;
     private Rigidbody2D rigid;
@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -37,9 +38,29 @@ public class Player : MonoBehaviour
         if (!GameManager.instance.isLive)
             return;
 
-        if(inputVec.x != 0)
+        anim.SetFloat("Speed", inputVec.magnitude);
+        if (inputVec.x != 0)
         {
             sprite.flipX = inputVec.x < 0;
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (!GameManager.instance.isLive)
+            return;
+
+        GameManager.instance.health -= Time.deltaTime * 10;
+
+        if (GameManager.instance.health < 0)
+        {
+            for (int index = 2; index < transform.childCount; index++)
+            {
+                transform.GetChild(index).gameObject.SetActive(false);
+            }
+
+            anim.SetTrigger("Dead");
+            //GameManager.instance.GameOver();
         }
     }
 }
