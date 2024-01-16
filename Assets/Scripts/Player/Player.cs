@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField]
-    private Vector2 inputVec = new Vector2();
+    public Vector2 inputVec = new Vector2();
     [SerializeField]
     private float Speed;
 
@@ -23,7 +22,17 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!GameManager.instance.isLive)
+        OnMove();
+    }
+
+    private void LateUpdate()
+    {
+        TurnCharactor();
+    }
+
+    public void OnMove()
+    {
+        if (!GameManager.instance.isLive || UseItem.isStop)
             return;
 
         inputVec.x = Input.GetAxis("Horizontal");
@@ -33,7 +42,7 @@ public class Player : MonoBehaviour
         rigid.MovePosition(rigid.position + nextMove);
     }
 
-    private void LateUpdate()
+    private void TurnCharactor()
     {
         if (!GameManager.instance.isLive)
             return;
@@ -42,6 +51,14 @@ public class Player : MonoBehaviour
         if (inputVec.x != 0)
         {
             sprite.flipX = inputVec.x < 0;
+        }
+        if (sprite.flipX == true)
+        {
+            UseItem.Left = true;
+        }
+        if (sprite.flipX == false)
+        {
+            UseItem.Left = false;
         }
     }
 
