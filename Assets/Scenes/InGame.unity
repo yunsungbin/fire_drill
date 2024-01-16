@@ -735,6 +735,7 @@ MonoBehaviour:
   particle:
   - {fileID: 8479014815522255372, guid: 43eda6e543ba84c4287d0ee0f6f60ada, type: 3}
   - {fileID: 275329084866932676, guid: de2e63de36ee17f4da44383e21848513, type: 3}
+  - {fileID: 7344111890621599445, guid: e1b065db09517c74393fdd53ed242a72, type: 3}
 --- !u!212 &1502367588
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -901,7 +902,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.015163541, y: 0}
@@ -927,7 +928,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1748569594
 MonoBehaviour:
   m_ObjectHideFlags: 0

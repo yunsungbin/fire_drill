@@ -60,6 +60,13 @@ public class UseItem : MonoBehaviour
     private void Blanket()
     {
         Inventory.instance.isItemUse = false;
-        Instantiate(particle[0], transform.position, Quaternion.identity);
+        if (Left == true)
+        {
+            Instantiate(particle[2], transform.position, Quaternion.Euler(0, 180, 0));
+        }
+        if (Left == false)
+        {
+            Instantiate(particle[2], transform.position, Quaternion.Euler(0, 0, 0));
+        }
     }
 }

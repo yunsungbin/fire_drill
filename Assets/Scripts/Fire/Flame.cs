@@ -10,6 +10,9 @@ public class Flame : MonoBehaviour
     private float GameTime;
     private float PlusFire = 50;
 
+    public float attackDelay = 0f;
+    public bool isDamaged = false;
+
     private void Awake()
     {
         health = maxHealth;
@@ -28,6 +31,31 @@ public class Flame : MonoBehaviour
         {
             PlusFire += 50;
             maxHealth += 10;
+        }
+
+        if (isDamaged == true)
+        {
+            if (attackDelay < 0.5f)
+            {
+                attackDelay += Time.deltaTime;
+            }
+            else
+            {
+                isDamaged = false;
+            }
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Blanket")
+        {
+            if (isDamaged == false)
+            {
+                health -= 50;
+                attackDelay = 0f;
+                isDamaged = true;
+            }
         }
     }
 }
