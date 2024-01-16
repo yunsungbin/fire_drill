@@ -2,20 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ItemType
+public enum KeyType
 {
-    extinguisher, //��ȭ��
-    blanket, //���
-    bandage, //�ش�
-    key
+    Key
 }
 
 [System.Serializable]
-public class Item
+public class KeyData
 {
-    public ItemType itemType;
-    public string itemName;
-    public Sprite itemImage;
+    public KeyType keyType;
+    public string keyName;
+    public Sprite keyImage;
     public List<ItemEffect> efts;
 
     public bool Use()
