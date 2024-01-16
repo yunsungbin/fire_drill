@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemDataBase : MonoBehaviour
 {
     public static ItemDataBase instance;
+    private Item item;
 
     Inventory inven;
 
@@ -17,6 +18,7 @@ public class ItemDataBase : MonoBehaviour
     [Space(20)]
     public GameObject filedItemPrefab;
     public Vector3[] pos;
+    public Vector3[] keyPos;
 
     GameObject reItem;
     public static Item Fallitem;
@@ -31,6 +33,9 @@ public class ItemDataBase : MonoBehaviour
             GameObject go = Instantiate(filedItemPrefab, pos[index], Quaternion.identity);
             go.GetComponent<FiledItem>().SetItem(itemDB[Random.Range(0, 3)]);
         }
+        Vector3 keysPos = keyPos[Random.Range(0, keyPos.Length)];
+        GameObject obj = Instantiate(filedItemPrefab, keysPos, Quaternion.identity);
+        obj.GetComponent<FiledItem>().SetItem(itemDB[3]);
         
     }
 
@@ -46,8 +51,10 @@ public class ItemDataBase : MonoBehaviour
             Inventory.instance.isItemFall = false;
 
             Vector3 pos = inven.transform.position;
+            Vector3 keyPos = inven.transform.position;
 
             spawnPos = pos + inven.transform.up * -1.0f;
+            spawnPos = keyPos + inven.transform.up * -1.0f;
 
             reItem = Instantiate(filedItemPrefab, spawnPos, Quaternion.identity);
             reItem.GetComponent<FiledItem>().SetItem(Fallitem);
