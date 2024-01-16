@@ -47,7 +47,6 @@ public class Player : MonoBehaviour
         if (!GameManager.instance.isLive)
             return;
 
-        anim.SetFloat("Speed", inputVec.magnitude);
         if (inputVec.x != 0)
         {
             sprite.flipX = inputVec.x < 0;
@@ -60,6 +59,11 @@ public class Player : MonoBehaviour
         {
             UseItem.Left = false;
         }
+    }
+
+    private void PlayerAnime()
+    {
+        
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -76,7 +80,7 @@ public class Player : MonoBehaviour
                 transform.GetChild(index).gameObject.SetActive(false);
             }
 
-            anim.SetTrigger("Dead");
+            //anim.SetTrigger("Dead");
             //GameManager.instance.GameOver();
         }
     }

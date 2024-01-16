@@ -307,18 +307,15 @@ MonoBehaviour:
   - itemType: 0
     itemName: "\uC18C\uD654\uAE30"
     itemImage: {fileID: -1722126508, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
-    efts:
-    - {fileID: 11400000, guid: ae49f963860256d42b267808e769befd, type: 2}
+    efts: []
   - itemType: 1
     itemName: "\uB2F4\uC694"
     itemImage: {fileID: 1304559308, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
-    efts:
-    - {fileID: 11400000, guid: 7160c2568776530459dc2007fbdaa87a, type: 2}
+    efts: []
   - itemType: 2
     itemName: "\uBD95\uB300"
     itemImage: {fileID: 934571490, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
-    efts:
-    - {fileID: 11400000, guid: 2192ab580afc4584594b0bd5a8a2e109, type: 2}
+    efts: []
   filedItemPrefab: {fileID: 7080281461493035855, guid: 58f5c4370080a8b4587b58a94c445e92, type: 3}
   pos:
   - {x: -1, y: 0, z: 0}
@@ -327,6 +324,7 @@ MonoBehaviour:
   - {x: -1, y: -1, z: 0}
   - {x: -1, y: 1, z: 0}
   - {x: 1, y: -1, z: 0}
+  keyPos: []
 --- !u!114 &522633355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,11 +337,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52b4bc65e16143048ab7e2aaf2bae0af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: {fileID: 2928761773469101065, guid: 033a4d11d1058a849b30b05c46ff44ac, type: 3}
+  itemDB: []
+  key: {fileID: 8121085670105720081, guid: 22684237cafc6c447b89a3a7b70265f0, type: 3}
   pos:
-  - {x: 1, y: 1, z: 1}
-  - {x: 2, y: 2, z: 2}
-  - {x: 3, y: 3, z: 3}
+  - {x: 1, y: 1, z: 0}
+  - {x: 2, y: 2, z: 0}
+  - {x: 3, y: 3, z: 0}
 --- !u!1 &622241143
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,7 +850,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -1413294825, guid: 99a24620d31e5ce4e823c32d11e17c2c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2568bee6322f72a45ac9b5a2b8c7128d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -902,11 +901,11 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.015163541, y: 0}
-  m_Size: {x: 0.80287623, y: 1.1111112}
+  m_Offset: {x: 0.015163541, y: 0.05876261}
+  m_Size: {x: 0.80287623, y: 1.2957934}
   m_Direction: 0
 --- !u!50 &1748569593
 Rigidbody2D:
@@ -956,7 +955,7 @@ Animator:
   m_GameObject: {fileID: 1748569588}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: dc872ae063ce89c44abf487c66245a6c, type: 2}
+  m_Controller: {fileID: 9100000, guid: ab826644f6ca64e4abfa02e6587eee2b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

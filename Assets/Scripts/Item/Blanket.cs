@@ -8,6 +8,8 @@ public class Blanket : MonoBehaviour
     private AnimationCurve curveUp;
     [SerializeField]
     private AnimationCurve curveDown;
+    [SerializeField]
+    private GameObject blankets;
 
     private float MaxHeigh = 5;
     private float CurveTime = 0.2f;
@@ -60,5 +62,11 @@ public class Blanket : MonoBehaviour
             transform.localPosition = Vector3.Lerp(startPos, targetPos, curveDown.Evaluate(Complete));
             yield return null;
         }
+
+        yield return new WaitForSeconds(3.0f);
+
+        Instantiate(blankets, transform.position, Quaternion.identity);
+        yield return null;
+        Destroy(gameObject);
     }
 }
