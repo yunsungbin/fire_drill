@@ -42,7 +42,7 @@ public class MenuManager : MonoBehaviour
         if(button.name == "Start_Button"){ 
             AudioManager.Instance.PlaySFX("ButtonClick");
             StartCoroutine(WaitForSecond());
-            SceneManager.LoadScene("Test"); 
+            LoadingManager.LoadScene("RinkGame"); 
         }
         else if(button.name == "OptionMenu_Button"){
             _Menuindex = 1;                      

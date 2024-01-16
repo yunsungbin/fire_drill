@@ -13,8 +13,11 @@ public class Player : MonoBehaviour
     private SpriteRenderer sprite;
     private Rigidbody2D rigid;
 
+    private float isAnime = 0;
+
     private void Awake()
     {
+        isAnime = 0;
         rigid = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
@@ -22,7 +25,16 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (inputVec.x == 0 && inputVec.y == 0)
+            PlayerAnimeIdle();
+        if (inputVec.x != 0 || inputVec.y != 0)
+        {
+            anim.SetBool("Right", false);
+            anim.SetBool("Back", false);
+            anim.SetBool("Front", false);
+        }
         OnMove();
+        PlayerAnimeMove();
     }
 
     private void LateUpdate()
@@ -37,6 +49,9 @@ public class Player : MonoBehaviour
 
         inputVec.x = Input.GetAxis("Horizontal");
         inputVec.y = Input.GetAxis("Vertical");
+
+        anim.SetFloat("PosX", inputVec.x);
+        anim.SetFloat("PosY", inputVec.y);
 
         Vector2 nextMove = inputVec * Speed * Time.fixedDeltaTime;
         rigid.MovePosition(rigid.position + nextMove);
@@ -61,9 +76,40 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void PlayerAnime()
+    private void PlayerAnimeMove()
+    {
+        if(inputVec.x != 0)
+        {
+            isAnime = 2;
+        }
+        else if(inputVec.y > 0)
+        {
+            isAnime = 1;
+        }
+        else if (inputVec.y < 0)
+        {
+            isAnime = 0;
+        }
+    }
+
+    private void PlayerAnimeIdle()
     {
         
+        if (isAnime == 2)
+        {
+            anim.SetBool("Right", true);
+            isAnime = 2;
+        }
+        if (isAnime == 1)
+        {
+            anim.SetBool("Back", true);
+            isAnime = 1;
+        }
+        if (isAnime == 0)
+        {
+            anim.SetBool("Front", true);
+            isAnime = 0;
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)

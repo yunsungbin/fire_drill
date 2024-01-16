@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
         instance = this;
         Application.targetFrameRate = 60;
         health = maxHealth;
+        maxGameTime = 300;
     }
 
     private void Update()
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour
 
         if (maxGameTime <= 0 || health <= 0)
         {
-            SceneManager.LoadScene("Menu");
+            LoadingManager.LoadScene("Menu");
         }
     }
 
