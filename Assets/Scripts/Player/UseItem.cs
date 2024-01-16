@@ -5,33 +5,61 @@ using UnityEngine;
 public class UseItem : MonoBehaviour
 {
     public GameObject[] particle;
-    public static int useItem = 0;
+    public static Item useitem;
+    public static bool Left = false;
+    public static bool isStop = false;
 
-    Inventory inven;
-    ItemType type;
-
-    private void Update()
+    public void Update()
     {
-        if (inven.Check != 100 && Input.GetKey(KeyCode.E))
-        {
-            if (inven.Check == 0) useItem = 1;
-            if (inven.Check == 1) useItem = 2;
+        Use();
+    }
 
-            switch (type)
-            {
-                case ItemType.extinguisher:
-                    Extinguisher();
-                    break;
-                case ItemType.bandage:
-                    break;
-                case ItemType.blanket:
-                    break;
-            }
+    public void Use()
+    {
+        if (!Inventory.instance.isItemUse)
+            return;
+
+        if (useitem.itemType == ItemType.extinguisher)
+        {
+            isStop = true;
+            Extinguisher();
+        }
+        if (useitem.itemType == ItemType.bandage)
+        {
+            Bandage();
+        }
+        if (useitem.itemType == ItemType.blanket)
+        {
+            Blanket();
         }
     }
 
     private void Extinguisher()
     {
-        particle[0].SetActive(true);
+        Inventory.instance.isItemUse = false;
+        
+        if (Left == true)
+        {
+            isStop = true;
+            Instantiate(particle[0], transform.position, Quaternion.Euler(0, 180, 0));
+        }
+        if(Left == false)
+        {
+            isStop = true;
+            Instantiate(particle[0], transform.position, Quaternion.Euler(0, 0, 0));
+        }
+
+    }
+
+    private void Bandage()
+    {
+        Inventory.instance.isItemUse = false;
+        Instantiate(particle[1], transform.position, Quaternion.identity);
+    }
+
+    private void Blanket()
+    {
+        Inventory.instance.isItemUse = false;
+        Instantiate(particle[0], transform.position, Quaternion.identity);
     }
 }

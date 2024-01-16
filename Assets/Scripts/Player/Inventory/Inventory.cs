@@ -24,27 +24,44 @@ public class Inventory : MonoBehaviour
 
     public int Check = 100;
     public bool isItemFall = false;
+    public bool isItemUse = false;
+
+    public Player player;
 
     private void Start()
     {
         Check = 100;
+        isItemFall = false;
+        isItemUse = false;
     }
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Alpha1) && items[0] != null)
+        if (Input.GetKeyDown(KeyCode.Alpha1) && items[0] != null)
         {
             Check = 0;
         }
-        if(Input.GetKey(KeyCode.Alpha2) && items[1] != null)
+        if(Input.GetKeyDown(KeyCode.Alpha2) && items[1] != null)
         {
             Check = 1;
             
         }
-        if (Input.GetKey(KeyCode.Q) && Check != 100)
+
+        if (Check == 100)
+            return;
+
+        if (Input.GetKey(KeyCode.Q))
         {
             isItemFall = true;
             ItemDataBase.Fallitem = items[Check];
+            items.RemoveAt(Check);
+            onChangeItem.Invoke();
+            Check = 100;
+        }
+        if (Input.GetKey(KeyCode.E) && player.inputVec.x == 0 && player.inputVec.y == 0)
+        {
+            isItemUse = true;
+            UseItem.useitem = items[Check];
             items.RemoveAt(Check);
             onChangeItem.Invoke();
             Check = 100;
