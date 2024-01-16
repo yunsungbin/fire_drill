@@ -24,7 +24,7 @@ public class Grid : MonoBehaviour
         {
             for(int j = 0; j < nodeCountY; j++)
             {
-                Vector3 pos = new Vector3(i * nodeSize - 8.5f, j * nodeSize - 4.5f); //노드의 좌표
+                Vector3 pos = new Vector3(i * nodeSize - 30f, j * nodeSize - 53.4f); //노드의 좌표
                 Collider2D hit = Physics2D.OverlapBox(pos, new Vector2(nodeSize/2, nodeSize/2 ), 0, obstacle);
                 bool noHit = false;
                 if (hit == null)  noHit = true;
