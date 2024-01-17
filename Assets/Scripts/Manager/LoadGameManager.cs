@@ -45,7 +45,6 @@ public class LoadGameManager : MonoBehaviour
         }
         else if(!firstStage)
         {
-            LoadGameManager.secondStage = true;
             Stagetext[1].SetActive(true);
         }
         else if (GameManager.instance.isClear)

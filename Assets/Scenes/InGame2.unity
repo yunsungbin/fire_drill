@@ -807,7 +807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLive: 1
-  maxGameTime: 300
+  maxGameTime: 180
   health: 0
   maxHealth: 100
   player: {fileID: 1748569591}

@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
         health = maxHealth;
         isClear = false;
         maxGameTime = 300;
-        if (LoadGameManager.secondStage) maxGameTime = 180;
+        if (LoadGameManager.firstStage) maxGameTime = 180;
     }
 
     private void Update()

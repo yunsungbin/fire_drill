@@ -15,7 +15,7 @@ public class Goal : MonoBehaviour
 
     IEnumerator NextStage()
     {
-        if (LoadGameManager.secondStage == true) ;
+        if (GameManager.instance.isClear)
         {
             LoadGameManager.secondStage = false;
             Player.useKey = false;

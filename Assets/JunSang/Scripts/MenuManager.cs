@@ -20,6 +20,7 @@ public class MenuManager : MonoBehaviour
         // Cursor.lockState = CursorLockMode.Locked;
         // Cursor.visible = false;
         LoadGameManager.firstStage = true;
+        LoadGameManager.secondStage = false;
     }
     void Start()
     {
