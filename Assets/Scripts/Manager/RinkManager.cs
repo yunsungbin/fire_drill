@@ -30,22 +30,29 @@ public class RinkManager : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             NextStory();
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(1.5f);
             textNum++;
         }
         for (int i = 0; i < 2; i++)
         {
-            yield return new WaitForSeconds(0.6f);
+            yield return new WaitForSeconds(0.9f);
             textNum++;
         }
         for (int i = 0; i < 3; i++)
         {
             NextStory();
-            yield return new WaitForSeconds(0.9f);
+            yield return new WaitForSeconds(2.0f);
             textNum++;
         }
+        for (int i = 0; i < 3; i++)
+        {
+            NextStory();
+            yield return new WaitForSeconds(2.0f);
+            textNum++;
+        }
+        yield return new WaitForSeconds(1.0f);
         textui.SetActive(false);
-        LoadingManager.LoadScene("InGame");
+        LoadGameManager.LoadingScene("InGame");
     }
 
     void NextStory()
@@ -86,6 +93,6 @@ public class RinkManager : MonoBehaviour
 
     public void SKIP()
     {
-        LoadingManager.LoadScene("InGame");
+        LoadGameManager.LoadingScene("InGame");
     }
 }
