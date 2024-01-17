@@ -15,12 +15,16 @@ public class GameManager : MonoBehaviour
     [Header("Game Object")]
     public Player player;
 
+    public bool isClear = false;
+
     private void Awake()
     {
         instance = this;
         Application.targetFrameRate = 60;
         health = maxHealth;
+        isClear = false;
         maxGameTime = 300;
+        if (LoadGameManager.secondStage) maxGameTime = 180;
     }
 
     private void Update()
@@ -31,8 +35,15 @@ public class GameManager : MonoBehaviour
 
         if (maxGameTime <= 0 || health <= 0)
         {
-            LoadingManager.LoadScene("Menu");
+            StartCoroutine(Menu());
         }
+    }
+
+    IEnumerator Menu()
+    {
+        isClear = false;
+        yield return null;
+        LoadGameManager.LoadingScene("Menu");
     }
 
     public void GameStart()

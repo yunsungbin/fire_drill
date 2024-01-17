@@ -8,6 +8,7 @@ public class LoadGameManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] Stagetext;
     public static bool firstStage;
+    public static bool secondStage;
 
     [SerializeField]
 
@@ -38,14 +39,22 @@ public class LoadGameManager : MonoBehaviour
     IEnumerator LoadingScene()
 
     {
-        if (firstStage == true)
+        if (firstStage)
         {
             Stagetext[0].SetActive(true);
-            firstStage = false;
+        }
+        else if(!firstStage)
+        {
+            LoadGameManager.secondStage = true;
+            Stagetext[1].SetActive(true);
+        }
+        else if (GameManager.instance.isClear)
+        {
+            Stagetext[2].SetActive(true);
         }
         else
         {
-            Stagetext[1].SetActive(true);
+            Stagetext[3].SetActive(true);
         }
         yield return new WaitForSeconds(2.0f);
 

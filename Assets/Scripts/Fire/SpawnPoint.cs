@@ -34,7 +34,7 @@ public class SpawnPoint : MonoBehaviour
             }
         }
         else{
-            time = Time.deltaTime;
+            time += Time.deltaTime;
         }
     }
 }

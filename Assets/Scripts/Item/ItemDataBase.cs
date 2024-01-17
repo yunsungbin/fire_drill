@@ -28,7 +28,7 @@ public class ItemDataBase : MonoBehaviour
     private void Start()
     {
         inven = Inventory.instance;
-        for(int index = 0; index < 6; index++)
+        for(int index = 0; index < pos.Length; index++)
         {
             GameObject go = Instantiate(filedItemPrefab, pos[index], Quaternion.identity);
             go.GetComponent<FiledItem>().SetItem(itemDB[Random.Range(0, 3)]);
