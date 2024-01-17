@@ -15,9 +15,12 @@ public class Player : MonoBehaviour
 
     private float isAnime = 0;
 
+    public static bool useKey = false;
+
     private void Awake()
     {
         isAnime = 0;
+        useKey = false;
         rigid = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();

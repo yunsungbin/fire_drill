@@ -22,6 +22,7 @@ public class Flame : MonoBehaviour
 
     private void Update()
     {
+        if (health <= 0) Destroy(gameObject);
         if (maxHealth >= 150)
             return;
 
@@ -48,7 +49,7 @@ public class Flame : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Blanket")
+        if(other.gameObject.tag == "Item")
         {
             if (isDamaged == false)
             {

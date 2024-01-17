@@ -14,7 +14,7 @@ public class DestoryUseItem : MonoBehaviour
     {
         if(UseItem.isStop)
         {
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(0.1f);
             UseItem.isStop = false;
             yield return null;
 

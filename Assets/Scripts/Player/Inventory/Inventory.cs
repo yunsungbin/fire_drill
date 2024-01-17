@@ -88,7 +88,7 @@ public class Inventory : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Item"))
+        if (collision.CompareTag("Inventory"))
         {
             FiledItem filedItem = collision.GetComponent<FiledItem>();
             if (AddItem(filedItem.GetItem()))

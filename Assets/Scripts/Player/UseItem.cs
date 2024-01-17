@@ -32,6 +32,10 @@ public class UseItem : MonoBehaviour
         {
             Blanket();
         }
+        if (useitem.itemType == ItemType.key)
+        {
+            UseKey();
+        }
     }
 
     private void Extinguisher()
@@ -68,5 +72,10 @@ public class UseItem : MonoBehaviour
         {
             Instantiate(particle[2], transform.position, Quaternion.Euler(0, 0, 0));
         }
+    }
+
+    private void UseKey()
+    {
+        Player.useKey = true;
     }
 }

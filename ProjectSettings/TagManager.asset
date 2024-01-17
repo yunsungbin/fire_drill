@@ -5,7 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Item
-  - Blanket
+  - Inventory
   layers:
   - Default
   - TransparentFX
