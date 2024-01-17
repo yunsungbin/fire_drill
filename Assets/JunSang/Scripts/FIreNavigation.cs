@@ -49,6 +49,7 @@ public class FIreNavigation : MonoBehaviour
         if(other.gameObject.tag == "Player"){
             if(isDamaged == false){
                 GameManager.instance.health -= damage;
+                if (!LoadGameManager.firstStage) GameManager.instance.health -= 19;
                 attackDelay = 0f;
                 isDamaged = true;
             }

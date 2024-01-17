@@ -23,8 +23,8 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = 60;
         health = maxHealth;
         isClear = false;
-        maxGameTime = 300;
-        if (LoadGameManager.firstStage) maxGameTime = 180;
+        maxGameTime = 180;
+        if (!LoadGameManager.firstStage) maxGameTime = 60;
     }
 
     private void Update()
