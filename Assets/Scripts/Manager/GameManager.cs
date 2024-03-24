@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class GameManager : MonoBehaviour
     public Player player;
 
     public bool isClear = false;
+
+    [SerializeField]
+    private Image slider;
 
     private void Awake()
     {
@@ -36,6 +40,8 @@ public class GameManager : MonoBehaviour
         if (!isLive)
             return;
         maxGameTime -= Time.deltaTime;
+
+        slider.fillAmount = health / maxHealth;
 
         if (maxGameTime <= 0 || health <= 0)
         {
