@@ -21,6 +21,7 @@ public class Inventory : MonoBehaviour
     public OnChangeItem onChangeItem;
 
     public List<Item> items = new List<Item>();
+    public List<GameObject> CheckObj = new List<GameObject>();
 
     public int Check = 100;
     public bool isItemFall = false;
@@ -40,11 +41,14 @@ public class Inventory : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1) && items[0] != null)
         {
             Check = 0;
+            unCheckObj();
+            CheckObj[0].SetActive(true);
         }
         if(Input.GetKeyDown(KeyCode.Alpha2) && items[1] != null)
         {
             Check = 1;
-            
+            unCheckObj();
+            CheckObj[1].SetActive(true);
         }
 
         if (Check == 100)
@@ -56,6 +60,7 @@ public class Inventory : MonoBehaviour
             ItemDataBase.Fallitem = items[Check];
             items.RemoveAt(Check);
             onChangeItem.Invoke();
+            unCheckObj();
             Check = 100;
         }
         if (Input.GetKey(KeyCode.E) && player.inputVec.x == 0 && player.inputVec.y == 0)
@@ -64,8 +69,15 @@ public class Inventory : MonoBehaviour
             UseItem.useitem = items[Check];
             items.RemoveAt(Check);
             onChangeItem.Invoke();
+            unCheckObj();
             Check = 100;
         }
+    }
+
+    private void unCheckObj()
+    {
+        CheckObj[0].SetActive(false);
+        CheckObj[1].SetActive(false);
     }
 
     public bool AddItem(Item _item)

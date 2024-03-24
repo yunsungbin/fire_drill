@@ -1,5 +1,4 @@
 using System.Collections;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Jobs;
@@ -14,6 +13,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private int _Menuindex = 0; 
     [SerializeField] private int _Buttonindex = 0; 
     [SerializeField] private int _Sliderindex = -1;
+
     // Start is called before the first frame update
 
     void Awake(){
@@ -21,6 +21,7 @@ public class MenuManager : MonoBehaviour
         // Cursor.visible = false;
         LoadGameManager.firstStage = true;
         LoadGameManager.secondStage = false;
+        GameManager.instance.isClear = false;
     }
     void Start()
     {

@@ -9,20 +9,17 @@ EditorBuildSettings:
     path: Assets/JunSang/TestScenes/Menu.unity
     guid: a2ec10e196f00c240abadbcc50ae55c3
   - enabled: 1
-    path: Assets/Scenes/InGame.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/LoadingScene.unity
+    guid: 18378438b69640442bb492d2f2bb8257
+  - enabled: 1
+    path: Assets/Scenes/RinkGame.unity
+    guid: daaaf4d5b8b0b8546b69b8ed63298f38
   - enabled: 1
     path: Assets/Scenes/GameLoading.unity
     guid: e26ea79303f6a714a929ea5f9dae952d
   - enabled: 1
-    path: Assets/Scenes/LoadingScene.unity
-    guid: 18378438b69640442bb492d2f2bb8257
-  - enabled: 1
-    path: Assets/JunSang/TestScenes/Test.unity
-    guid: 85589b0b41f0fd34db8855ab5924d161
-  - enabled: 1
-    path: Assets/Scenes/RinkGame.unity
-    guid: daaaf4d5b8b0b8546b69b8ed63298f38
+    path: Assets/Scenes/InGame.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/InGame2.unity
     guid: 2146aab64a3a8af4d93828c69bd82d81

@@ -20,7 +20,7 @@ public class Goal : MonoBehaviour
             LoadGameManager.secondStage = false;
             Player.useKey = false;
             yield return null;
-            LoadGameManager.LoadingScene("Menu");
+            LoadingManager.LoadScene("Menu");
         }
         if (LoadGameManager.firstStage == true)
         {

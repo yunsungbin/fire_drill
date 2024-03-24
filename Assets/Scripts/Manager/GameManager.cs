@@ -24,7 +24,11 @@ public class GameManager : MonoBehaviour
         health = maxHealth;
         isClear = false;
         maxGameTime = 180;
-        if (!LoadGameManager.firstStage) maxGameTime = 60;
+        if (!LoadGameManager.firstStage)
+        {
+            isClear = true;
+            maxGameTime = 60;
+        }
     }
 
     private void Update()
@@ -43,7 +47,7 @@ public class GameManager : MonoBehaviour
     {
         isClear = false;
         yield return null;
-        LoadGameManager.LoadingScene("Menu");
+        LoadingManager.LoadScene("Menu");
     }
 
     public void GameStart()
