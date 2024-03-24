@@ -48070,6 +48070,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 948971069441920439, guid: 84580d9c362e27547ad96c93d51073f1, type: 3}
+      propertyPath: CheckObj.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 948971069441920439, guid: 84580d9c362e27547ad96c93d51073f1, type: 3}
+      propertyPath: CheckObj.Array.data[0]
+      value: 
+      objectReference: {fileID: 1848681681}
+    - target: {fileID: 948971069441920439, guid: 84580d9c362e27547ad96c93d51073f1, type: 3}
+      propertyPath: CheckObj.Array.data[1]
+      value: 
+      objectReference: {fileID: 539663924}
     - target: {fileID: 948971069441920440, guid: 84580d9c362e27547ad96c93d51073f1, type: 3}
       propertyPath: m_Color.a
       value: 0.43137255
